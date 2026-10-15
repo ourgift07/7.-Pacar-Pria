@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kado Digital Ulang Tahun Sayang</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#0A0A0A;--surface:#151515;--ink:#F5F5F5;--muted:#9A9A9A;--pink:#E63946;--sun:#C9CED6;--teal:#FFFFFF;--line:#2A2A2A;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0A0A;--surface:#151515;--ink:#F5F5F5;--muted:#9A9A9A;--line:#2A2A2A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A0A0A;--surface:#151515;--ink:#F5F5F5;--muted:#9A9A9A;--line:#2A2A2A;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Rubik',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+h1,h2{font-family:'Bricolage Grotesque','Rubik',system-ui,sans-serif;margin:0;line-height:1.05}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;display:flex;justify-content:center;gap:4px;padding:8px 10px;background:var(--bg);background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav a{flex:1;max-width:116px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 4px 5px;border-radius:16px;color:var(--muted);text-decoration:none;font:700 .78rem 'Rubik',sans-serif;transition:background .3s,color .3s}
+nav a svg{width:34px;height:34px;overflow:visible;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+nav a:hover svg,nav a.on svg{transform:scale(1.18) rotate(-6deg)}
+nav a.on{background:var(--ink);color:var(--bg)}
+nav a:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+nav svg *{transform-box:fill-box;transform-origin:center}
+.i-b{animation:ib 2.6s ease-in-out infinite}
+.i-l{animation:ilens 2.4s ease-in-out infinite}
+.i-f{animation:ifl 3s linear infinite}
+.i-p{animation:ip 1.4s ease-in-out infinite}
+.i-lid{animation:ilid 2.8s ease-in-out infinite}
+@keyframes ib{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.15) rotate(14deg)}}
+@keyframes ilens{50%{transform:scale(.55)}}
+@keyframes ifl{0%,60%,100%{opacity:0}70%,90%{opacity:1}}
+@keyframes ip{50%{transform:translateX(2.5px)}}
+@keyframes ilid{0%,60%,100%{transform:translateY(0) rotate(0)}70%{transform:translateY(-5px) rotate(-9deg)}85%{transform:translateY(-1px) rotate(2deg)}}
+section{max-width:820px;margin:0 auto;padding:70px 18px}
+h2{font-size:clamp(1.9rem,7vw,2.8rem);font-weight:800;margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 28px}
+.btn{display:inline-block;border:0;background:var(--pink);color:#fff;font:700 1rem 'Rubik',sans-serif;padding:13px 26px;border-radius:99px;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--line)}
+button:focus-visible,label:focus-within{outline:3px solid var(--pink);outline-offset:2px}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.rv[data-from="l"]{transform:translateX(-60px) rotate(-4deg)}
+.rv[data-from="r"]{transform:translateX(60px) rotate(4deg)}
+.rv[data-from="z"]{transform:scale(.7)}
+.rv.in{opacity:1;transform:none}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;text-align:center;padding-top:40px;position:relative}
+.balloons{display:flex;justify-content:center;gap:14px;margin-bottom:26px}
+@keyframes float{50%{transform:translateY(-12px)}}
+.hero h1{font-family:'Anton','Bricolage Grotesque',system-ui,sans-serif;font-weight:400;font-size:clamp(2.2rem,11.5vw,5.4rem);letter-spacing:.05em;text-transform:uppercase;line-height:1.1}
+.hero h1 .l{display:block}
+.hero h1 .l:first-child{white-space:nowrap}
+.hero h1 .l:nth-child(2){font-size:.5em;margin-top:.3em;letter-spacing:.14em}
+.hero h1 .c{text-shadow:.05em .06em 0 var(--pink)}
+.hero h1 .l:nth-child(2) .c{text-shadow:.06em .07em 0 var(--line)}
+.hero h1 .l{opacity:0;animation:pop .9s cubic-bezier(.2,1.4,.4,1) forwards}
+.hero h1 .l:nth-child(2){animation-delay:.3s}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.9)}to{opacity:1;transform:none}}
+.hint{margin-top:30px;color:var(--muted);font-size:.9rem}
+.hint span{display:block;font-size:1.6rem;animation:bounce 1.6s infinite}
+@keyframes bounce{50%{transform:translateY(8px)}}
+
+/* foto */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 16px}
+@media(min-width:620px){.grid{grid-template-columns:repeat(3,1fr)}}
+.ph{display:block}
+.pol{display:block;background:#fff;padding:9px 9px 34px;border-radius:6px;box-shadow:0 10px 24px rgba(0,0,0,.18);transform:rotate(var(--r,0deg));animation:bob 5s ease-in-out infinite;animation-delay:var(--b,0s);transition:transform .4s;position:relative;cursor:pointer}
+.pol:hover{animation-play-state:paused;transform:rotate(0) scale(1.06);z-index:2}
+@keyframes bob{50%{transform:translateY(-9px) rotate(calc(var(--r,0deg) * -1))}}
+.pol .im{display:grid;place-items:center;aspect-ratio:3/4;background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff;font-size:.85rem;text-align:center;overflow:hidden;position:relative}
+.pol .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kb 12s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12)}}
+.pol em{position:absolute;left:0;right:0;bottom:8px;text-align:center;font:500 .85rem 'Rubik',sans-serif;font-style:normal;color:#6B6B6B}
+.pol input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+
+/* video */
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px;justify-items:center}
+.vid{width:100%;max-width:300px;aspect-ratio:9/16;border-radius:22px;background:var(--surface);border:2px dashed var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);position:relative;overflow:hidden}
+.vid input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.vid video{position:absolute;inset:0;width:100%;height:100%;background:#000}
+.vid.has{border:0;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+
+/* kejutan */
+.gift{text-align:center;min-height:80svh}
+.box{width:170px;height:170px;margin:34px auto;position:relative;border:0;background:none;cursor:pointer}
+.box .b{position:absolute;left:0;right:0;bottom:0;height:110px;background:var(--pink);border-radius:8px}
+.box .b::before,.box .l::before{content:"";position:absolute;left:50%;width:26px;margin-left:-13px;top:0;bottom:0;background:var(--teal)}
+.box .l{position:absolute;left:-8px;right:-8px;top:18px;height:48px;background:var(--pink);border-radius:8px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.12);transition:transform .6s cubic-bezier(.3,1.6,.5,1)}
+.box.open .l{transform:translate(70px,-60px) rotate(24deg)}
+.box:not(.open){animation:wob 2s ease-in-out infinite}
+@keyframes wob{0%,100%{transform:rotate(0)}10%{transform:rotate(-4deg)}20%{transform:rotate(4deg)}30%{transform:rotate(0)}}
+.reveal{display:none;max-width:30ch;margin:0 auto}
+.reveal.on{display:block;animation:pop .9s cubic-bezier(.2,1.4,.4,1) both}
+.reveal h2{color:var(--pink)}
+.emo{position:fixed;bottom:-60px;z-index:10;pointer-events:none;animation:rise var(--t,4s) ease-out forwards}
+@keyframes rise{0%{transform:translateY(0) rotate(0) scale(.5);opacity:0}15%{opacity:1}100%{transform:translateY(-115vh) rotate(var(--rot,20deg)) scale(1.2);opacity:0}}
+.bigemo{font-size:4.5rem;line-height:1;margin-bottom:8px;display:inline-block;animation:wob 1.6s ease-in-out infinite}
+.emorow{display:flex;justify-content:center;gap:10px;font-size:2rem;margin:6px 0 20px}
+.emorow span{display:inline-block;animation:bob2 1.4s ease-in-out infinite;animation-delay:var(--e,0s)}
+@keyframes bob2{50%{transform:translateY(-10px) rotate(8deg)}}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+/* judul bergelombang */
+.wd{display:inline-block;white-space:nowrap}
+.c{display:inline-block;--base:var(--ink);--g1:var(--pink);--g2:var(--teal);color:var(--base);animation:wave 2.8s ease-in-out infinite,glint 4.2s linear infinite;animation-delay:calc(var(--i)*-.13s),calc(var(--i)*.11s - 4.2s)}
+.hero h1 .l:first-child .c{--base:var(--ink);--g1:var(--pink);--g2:var(--sun)}
+.hero h1 .l:nth-child(2) .c{--base:var(--pink);--g1:var(--ink);--g2:var(--sun)}
+@keyframes wave{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translateY(-.13em) rotate(-4deg)}75%{transform:translateY(.05em) rotate(3deg)}}
+@keyframes glint{0%,68%,100%{color:var(--base)}78%{color:var(--g1)}88%{color:var(--g2)}}
+/* video seperti foto */
+.vw{width:100%;max-width:270px}
+.vp .im{aspect-ratio:9/16}
+.pol .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+.pl{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.92);position:relative;animation:pulse 1.8s ease-in-out infinite;margin-bottom:10px}
+.pl::after{content:"";position:absolute;left:23px;top:17px;border-left:18px solid var(--pink);border-top:12px solid transparent;border-bottom:12px solid transparent}
+@keyframes pulse{50%{transform:scale(1.15)}}
+/* tema putri pink */
+body{background-image:radial-gradient(rgba(255,255,255,.05) 2px,transparent 2.6px);background-size:28px 28px}
+section{position:relative;z-index:1}
+.fl{position:fixed;bottom:-50px;z-index:0;pointer-events:none;opacity:.55;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateY(0) translateX(0) rotate(0)}50%{transform:translateY(-55vh) translateX(18px) rotate(15deg)}100%{transform:translateY(-115vh) translateX(-10px) rotate(-10deg)}}
+.pol::before{content:"";position:absolute;top:-9px;left:50%;width:56px;height:18px;margin-left:-28px;background:rgba(201,206,214,.85);transform:rotate(-3deg);border-radius:2px;z-index:1;pointer-events:none}
+.pol:not(:has(input)){cursor:default}
+.box::after{content:"🖤";position:absolute;top:-8px;left:50%;margin-left:-22px;font-size:2.6rem;line-height:1;z-index:2;transition:transform .6s,opacity .6s}
+.box.open::after{opacity:0;transform:translateY(-40px) rotate(30deg)}
+@media(min-width:620px){.grid .ph:last-child{grid-column:2}}
+.doa{position:relative;max-width:360px;margin:26px auto 0;cursor:pointer;transition:scale .2s}
+.doa:active{scale:.97}
+.ttl{font:400 clamp(1.5rem,6vw,2rem)/1.1 'Anton',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--pink);margin-bottom:6px}
+.heart{position:relative;container-type:inline-size;width:100%;aspect-ratio:200/220;filter:drop-shadow(0 14px 22px rgba(230,57,70,.3))}
+.doa.in .heart{animation:hpop 1s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes hpop{from{opacity:0;transform:scale(.2) rotate(-18deg)}}
+.hb{position:absolute;inset:0;transform-origin:50% 60%;animation:lub 3.4s ease-in-out infinite}
+@keyframes lub{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+.doa.tap .hb{animation:squish .5s cubic-bezier(.3,1.6,.5,1),lub 3.4s ease-in-out .5s infinite}
+@keyframes squish{0%{transform:scale(1)}30%{transform:scale(.9)}65%{transform:scale(1.12)}100%{transform:scale(1)}}
+.hb svg{width:100%;height:100%;display:block;overflow:visible}
+.stage{position:absolute;left:19%;right:19%;top:28%;bottom:26%;display:grid;align-items:center;text-align:center}
+.doa p{grid-area:1/1;margin:0;font:500 clamp(.8rem,3.4vw,1.05rem)/1.4 'Rubik',sans-serif;font:500 4.7cqw/1.4 'Rubik',sans-serif;color:#F5F5F5;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s}
+.doa p.on{opacity:1;transform:none}
+.doa p .w{display:inline-block}
+.doa p.on .w{animation:wordpop .7s cubic-bezier(.2,1.7,.4,1) backwards;animation-delay:calc(var(--i)*.1s + var(--base,.1s))}
+@keyframes wordpop{from{opacity:0;transform:translateY(18px) rotate(-8deg) scale(.5)}}
+.mh{position:absolute;bottom:30%;font-size:1.2rem;opacity:0;pointer-events:none;animation:mhrise 4s ease-in infinite;animation-delay:var(--d,0s)}
+@keyframes mhrise{0%{transform:translateY(0) scale(.5);opacity:0}20%{opacity:.9}100%{transform:translateY(-130px) scale(1.1) rotate(15deg);opacity:0}}
+.sp{position:absolute;color:var(--teal);font-size:1.2rem;pointer-events:none;animation:tw 2s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+@keyframes tw{from{transform:scale(.4) rotate(0);opacity:.3}to{transform:scale(1.2) rotate(45deg);opacity:1}}
+.bh{position:absolute;left:50%;top:48%;font-size:1.3rem;pointer-events:none;animation:bh .9s ease-out forwards}
+@keyframes bh{from{transform:translate(-50%,-50%) scale(.4);opacity:1}to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.3);opacity:0}}
+.doa small{display:block;margin-top:16px;color:var(--muted);font:700 .95rem 'Rubik',sans-serif}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:10px}
+.dots b{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);transition:.4s}
+.dots b.on{background:var(--pink);width:20px;border-radius:9px}
+.vp .im::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg);animation:shine 4.5s ease-in-out infinite;pointer-events:none}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.vp.playing{animation-play-state:paused}
+.vp.playing .im::after{display:none}
+h2{font-family:'Anton','Bricolage Grotesque',sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.06em}
+.balloons i{width:52px;height:64px;border-radius:50% 50% 48% 48%;position:relative;animation:float 4s ease-in-out infinite;box-shadow:inset -6px -8px 0 rgba(0,0,0,.18)}
+.balloons i::after{content:"";position:absolute;left:50%;top:100%;width:1.5px;height:50px;background:var(--muted);opacity:.5}
+.balloons i:nth-child(1){background:var(--pink)}.balloons i:nth-child(2){background:var(--sun);animation-delay:-1.3s;margin-top:-18px}.balloons i:nth-child(3){background:var(--teal);animation-delay:-2.6s}
+.sh{animation:sweep 4.5s ease-in-out infinite}
+@keyframes sweep{0%,50%{transform:translateX(0)}100%{transform:translateX(260px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.hero h1 .l,.doa p.on{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav aria-label="Menu utama">
+<a href="#s1" class="on"><svg viewBox="0 0 34 34" aria-hidden="true"><g class="i-b"><polygon points="17,3 21,12.5 31,13.5 23.5,20 25.8,30 17,24.8 8.2,30 10.5,20 3,13.5 13,12.5" fill="#E63946"/></g></svg>Ucapan</a>
+<a href="#s2"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="11" width="28" height="19" rx="5" fill="#6B6B6B"/><rect x="11" y="7" width="12" height="6" rx="2" fill="#6B6B6B"/><circle cx="17" cy="20.5" r="7" fill="#F5F5F5"/><circle class="i-l" cx="17" cy="20.5" r="4" fill="#C9CED6"/><circle class="i-f" cx="27" cy="15" r="2" fill="#E63946"/></svg>Foto</a>
+<a href="#s3"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="6" y="3" width="22" height="28" rx="6" fill="#C9CED6"/><path class="i-p" d="M14 11l9 6-9 6z" fill="#0A0A0A"/></svg>Video</a>
+<a href="#s4"><svg viewBox="0 0 34 34" aria-hidden="true"><rect x="6" y="17" width="22" height="14" rx="3" fill="#E63946"/><g class="i-lid"><rect x="4" y="11" width="26" height="7" rx="3" fill="#E63946"/><rect x="15" y="11" width="4" height="7" fill="#C9CED6"/></g><rect x="15" y="17" width="4" height="14" fill="#C9CED6"/></svg>Surprise</a>
+</nav>
+
+<section class="hero" id="s1">
+<div class="balloons" aria-hidden="true"><i></i><i></i><i></i></div>
+<h1><span class="l">Happy Birthday </span><span class="l" id="nama"></span></h1>
+<div class="doa rv" data-from="z" id="doa" aria-live="polite"><div class="ttl">Doa untukmu</div><div class="heart"><div class="hb"><svg viewBox="0 0 200 220" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#262626"/><stop offset="1" stop-color="#050505"/></linearGradient><clipPath id="sc"><path d="M100.0 10.0L186.6 60.0L186.6 160.0L100.0 210.0L13.4 160.0L13.4 60.0Z"/></clipPath></defs><path d="M100.0 10.0L186.6 60.0L186.6 160.0L100.0 210.0L13.4 160.0L13.4 60.0Z" fill="url(#sg)"/><g clip-path="url(#sc)"><polygon class="sh" points="-10,0 22,0 2,220 -30,220" fill="#fff" opacity=".12"/></g><path d="M100.0 10.0L186.6 60.0L186.6 160.0L100.0 210.0L13.4 160.0L13.4 60.0Z" fill="none" stroke="#C9CED6" stroke-width="4" stroke-linejoin="round"/><path d="M100.0 10.0L186.6 60.0L186.6 160.0L100.0 210.0L13.4 160.0L13.4 60.0Z" transform="translate(100 110) scale(.88) translate(-100 -110)" fill="none" stroke="#E63946" stroke-opacity=".7" stroke-width="1.6" stroke-linejoin="round"/><polygon points="100.0,26.0 103.5,35.1 113.3,35.7 105.7,41.9 108.2,51.3 100.0,46.0 91.8,51.3 94.3,41.9 86.7,35.7 96.5,35.1" fill="#E63946"/><path d="M82 182L100 194 118 182" stroke="#E63946" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="stage" id="stage"></div></div></div><span class="mh" style="left:4%;--d:0s">🖤</span><span class="mh" style="left:90%;--d:1.2s">🔥</span><span class="mh" style="left:16%;--d:2.4s">⚡</span><span class="mh" style="left:80%;--d:3.2s">🏆</span><span class="sp" style="left:2%;top:20%">✦</span><span class="sp" style="left:94%;top:26%;--d:.8s">✦</span><span class="sp" style="left:50%;top:0;--d:1.4s">✦</span><small id="dfrom"></small><div class="dots" id="dots"></div></div>
+<div class="hint">Gulir ke bawah, ada kado untukmu<span aria-hidden="true">&#8595;</span></div>
+</section>
+
+<section id="s2">
+<h2 class="rv">Foto Kita</h2>
+<div class="grid" id="grid"></div>
+</section>
+
+<section id="s3">
+<h2 class="rv">Video Kita</h2>
+<div class="vids" id="vids"></div>
+</section>
+
+<section class="gift" id="s4">
+<h2 class="rv" id="gh">Ada satu kado terakhir</h2>
+<p class="sub rv" id="gs" style="--d:.1s">Ketuk Kotaknya.</p>
+<div class="rv" data-from="z" style="--d:.2s"><button class="box" id="box" aria-label="Buka kotak kado"><span class="b"></span><span class="l"></span></button></div>
+<div class="reveal" id="rev"><div class="bigemo" aria-hidden="true">🖤</div><h2>Kamu rumahku.</h2><p class="sub" id="pesan"></p><div class="emorow" aria-hidden="true"><span style="--e:0s">🖤</span><span style="--e:.2s">🔥</span><span style="--e:.4s">🏆</span><span style="--e:.6s">🥂</span><span style="--e:.8s">🚀</span></div><button class="btn alt" id="again">Ledakkan lagi</button></div>
+</section>
+<canvas id="cv" aria-hidden="true"></canvas>
+
+<script>
+/* === UBAH BAGIAN INI === */
+var CFG={
+ nama:"Pria Terbaikku",
+ pengirim:"Dari pacarmu yang paling sayang kamu",
+ doa:[
+  "Semoga kamu selalu sehat, tenang, dan dikelilingi hal-hal baik.",
+  "Terima kasih sudah sabar, setia, dan selalu ada untukku.",
+  "Semoga langkahmu makin mantap dan semua usahamu membuahkan hasil.",
+  "Di antara semua orang, kamulah yang paling aku syukuri.",
+  "Semoga kita terus bersama melewati setiap musim hidup ini."
+ ],
+ pesan:"Kamu adalah ketenangan di tengah hari-hariku yang ramai. Selamat ulang tahun, sayang. Aku mencintaimu, hari ini dan seterusnya.",
+ kunci:false, /* ganti true untuk mengunci semua kotak foto dan video */
+ foto:["foto/1.jpeg","foto/2.jpeg","foto/3.jpeg","foto/4.jpeg","foto/5.jpeg","foto/6.jpeg","foto/7.jpeg","foto/8.jpeg","foto/9.jpeg","foto/10.jpeg"],
+ video:["video/1.mp4","video/2.mp4"]
+};
+/* ======================= */
+var $=function(s){return document.querySelector(s)};
+$("#nama").textContent=CFG.nama;$("#pesan").textContent=CFG.pesan;$("#dfrom").textContent=CFG.pengirim;
+
+/* doa bergantian otomatis */
+var doa=$("#doa"),dots=$("#dots"),di=0,ps=[],ds=[];
+CFG.doa.forEach(function(t){var p=document.createElement("p");t.split(" ").forEach(function(w,k){var s=document.createElement("span");s.className="w";s.style.setProperty("--i",k);s.textContent=w;p.appendChild(s);p.appendChild(document.createTextNode(" "))});$("#stage").appendChild(p);ps.push(p);var d=document.createElement("b");dots.appendChild(d);ds.push(d)});
+function showDoa(i){doa.style.setProperty("--base",window.sn?".1s":"1.4s");window.sn=1;di=i;ps.forEach(function(p,k){p.classList.toggle("on",k==i)});ds.forEach(function(d,k){d.classList.toggle("on",k==i)})}
+var timer=setInterval(function(){showDoa((di+1)%ps.length)},5500);
+doa.onclick=function(){clearInterval(timer);showDoa((di+1)%ps.length);timer=setInterval(function(){showDoa((di+1)%ps.length)},5500)};
+showDoa(0);
+
+/* 10 foto */
+var G=[["#3A3A3A","#161616"],["#E63946","#8B1A24"],["#C9CED6","#6B6B6B"],["#2A2A2A","#0F0F0F"],["#E63946","#2A2A2A"]];
+var grid=$("#grid");
+for(var i=1;i<=10;i++){(function(i){
+ var w=document.createElement("div");w.className="ph rv";
+ w.dataset.from=i%2?"l":"r";w.style.setProperty("--d",((i-1)%3)*.12+"s");
+ var rot=[-4,3,-2,5,-5,2,4,-3,3,-4][i-1];
+ var l=document.createElement("label");l.className="pol";
+ l.style.setProperty("--r",rot+"deg");l.style.setProperty("--b",(-i*.7)+"s");
+ var g=G[i%5];
+ l.innerHTML='<span class="im" style="--g1:'+g[0]+';--g2:'+g[1]+'"><span>Foto '+i+'</span></span><em>Kenangan '+i+'</em><input type="file" accept="image/*" aria-label="Pilih foto '+i+'">';
+ l.querySelector("input").onchange=function(e){var f=e.target.files[0];if(!f)return;var im=document.createElement("img");im.alt="Foto kenangan "+i;im.src=URL.createObjectURL(f);l.querySelector(".im").appendChild(im)};
+ if(CFG.foto[i-1]){var p0=document.createElement("img");p0.alt="Foto kenangan "+i;p0.src=CFG.foto[i-1];l.querySelector(".im").appendChild(p0);l.querySelector("input").remove()}
+ if(CFG.kunci){var q=l.querySelector("input");if(q)q.remove()}
+ w.appendChild(l);grid.appendChild(w)})(i)}
+
+/* 3 video */
+var vs=$("#vids");
+for(var j=1;j<=2;j++){(function(j){
+ var w=document.createElement("div");w.className="ph rv vw";w.dataset.from=j%2?"l":"r";w.style.setProperty("--d",(j-1)*.15+"s");
+ var d=document.createElement("div");d.className="pol vp";d.style.setProperty("--r",(j%2?-3:3)+"deg");d.style.setProperty("--b",(-j*1.3)+"s");
+ var g=G[(j+1)%5];
+ d.innerHTML='<span class="im" style="--g1:'+g[0]+';--g2:'+g[1]+'"><span class="pl"></span><span>Video '+j+'</span></span><em>Video '+j+'</em><input type="file" accept="video/*" aria-label="Pilih video '+j+'">';
+ var inp=d.querySelector("input");
+ inp.onchange=function(e){var f=e.target.files[0];if(!f)return;var v=document.createElement("video");v.controls=true;v.playsInline=true;v.src=URL.createObjectURL(f);d.querySelector(".im").appendChild(v);bindPlay(d,v);d.classList.add("has");inp.style.display="none"};
+ if(CFG.video[j-1]){var v0=document.createElement("video");v0.controls=true;v0.playsInline=true;v0.preload="metadata";v0.src=CFG.video[j-1]+"#t=0.1";d.querySelector(".im").appendChild(v0);bindPlay(d,v0);d.classList.add("has");inp.remove()}
+ if(CFG.kunci&&inp.parentNode)inp.remove();
+ w.appendChild(d);vs.appendChild(w)})(j)}
+
+/* animasi saat digulir */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+
+/* kejutan + konfeti */
+var cv=$("#cv"),cx=cv.getContext("2d"),P=[],run=false;
+function size(){cv.width=innerWidth;cv.height=innerHeight}size();addEventListener("resize",size);
+function boom(){
+ var C=["#E63946","#C9CED6","#FFFFFF","#6B6B6B","#FFFFFF"];
+ for(var i=0;i<170;i++)P.push({x:innerWidth/2,y:innerHeight*.55,vx:(Math.random()-.5)*16,vy:-Math.random()*17-4,s:Math.random()*8+4,c:C[i%5],r:Math.random()*6,vr:(Math.random()-.5)*.4});
+ if(!run){run=true;tick()}}
+function tick(){
+ cx.clearRect(0,0,cv.width,cv.height);
+ P=P.filter(function(p){return p.y<cv.height+20});
+ P.forEach(function(p){p.vy+=.35;p.vx*=.99;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);cx.restore()});
+ if(P.length)requestAnimationFrame(tick);else run=false}
+var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+$("#box").onclick=function(){
+ this.classList.add("open");
+ $("#gh").textContent="Selamat ulang tahun, sayang!";
+ $("#gs").style.display="none";emoji();
+ $("#rev").classList.add("on");
+ if(!reduce)boom()};
+$("#again").onclick=function(){if(!reduce)boom();emoji()};
+
+var EM=["🖤","🔥","🏆","⚡","🚀","⭐","🥂","🎯","💪","🏍️","🎸","🍻"];
+function emoji(){if(reduce)return;for(var i=0;i<22;i++){var s=document.createElement("span");s.className="emo";s.textContent=EM[Math.floor(Math.random()*EM.length)];s.style.left=(Math.random()*92)+"vw";s.style.fontSize=(1.6+Math.random()*2)+"rem";s.style.setProperty("--t",(3+Math.random()*2.5)+"s");s.style.setProperty("--rot",(Math.random()*80-40)+"deg");s.style.animationDelay=(Math.random()*.9)+"s";document.body.appendChild(s);(function(n){setTimeout(function(){n.remove()},7500)})(s)}}
+
+/* menu aktif mengikuti gulir */
+var links=document.querySelectorAll("nav a"),ids=["s1","s2","s3","s4"];
+function spy(){var y=innerHeight*.4,cur=0;ids.forEach(function(id,k){if(document.getElementById(id).getBoundingClientRect().top<=y)cur=k});links.forEach(function(a,k){a.classList.toggle("on",k==cur)})}
+addEventListener("scroll",spy,{passive:true});spy();
+/* judul bergelombang berulang */
+function wave(el){var t=el.textContent,i=0;el.textContent="";
+ t.split(" ").forEach(function(w,k){if(k)el.appendChild(document.createTextNode(" "));var wd=document.createElement("span");wd.className="wd";wd.setAttribute("aria-hidden","true");
+  w.split("").forEach(function(ch){var c=document.createElement("span");c.className="c";c.style.setProperty("--i",i++);c.textContent=ch;wd.appendChild(c)});el.appendChild(wd)})}
+document.querySelectorAll(".hero h1 .l").forEach(wave);
+$("#s1 h1").setAttribute("aria-label","Happy Birthday, "+CFG.nama);
+["#s2 h2","#s3 h2"].forEach(function(q){var h=$(q);h.setAttribute("aria-label",h.textContent);wave(h)});
+/* hati dan bunga melayang */
+if(!reduce){var FL=["⭐","✨","🖤","🌙","⚡"];for(var k=0;k<14;k++){var f=document.createElement("span");f.className="fl";f.setAttribute("aria-hidden","true");f.textContent=FL[k%FL.length];f.style.left=(Math.random()*96)+"vw";f.style.fontSize=(.9+Math.random()*1.3)+"rem";f.style.animationDuration=(14+Math.random()*14)+"s";f.style.animationDelay=(-Math.random()*20)+"s";document.body.appendChild(f)}}
+/* ketuk hati: hati berdenyut dan hati kecil berhamburan */
+$("#doa").addEventListener("click",function(){if(reduce)return;var d=$("#doa");d.classList.remove("tap");void d.offsetWidth;d.classList.add("tap");setTimeout(function(){d.classList.remove("tap")},600);
+ for(var i=0;i<8;i++){var b=document.createElement("span");b.className="bh";b.textContent=["🖤","✨","⚡","🔥"][i%4];var a=Math.PI*2*i/8;b.style.setProperty("--dx",Math.round(Math.cos(a)*120)+"px");b.style.setProperty("--dy",Math.round(Math.sin(a)*95)+"px");d.appendChild(b);(function(n){setTimeout(function(){n.remove()},1000)})(b)}});
+/* bingkai video tetap bergerak, berhenti saat video diputar */
+function bindPlay(d,v){v.addEventListener("play",function(){d.classList.add("playing")});["pause","ended"].forEach(function(e){v.addEventListener(e,function(){d.classList.remove("playing")})})}
+</script>
+</body>
+</html>
